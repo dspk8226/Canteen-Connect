@@ -4,6 +4,16 @@ import axios from 'axios'
 import { StoreContext } from '../../Context/StoreContext';
 import { assets } from '../../assets/assets';
 
+// Map backend status values to student-facing labels (backend API unchanged)
+const orderStatusLabel = (status) => {
+  const map = {
+    'Food Processing': 'Preparing',
+    'Out for delivery': 'Ready for Pickup',
+    'Delivered': 'Collected'
+  };
+  return map[status] || status;
+};
+
 const MyOrders = () => {
   
   const [data,setData] =  useState([]);
@@ -14,6 +24,7 @@ const MyOrders = () => {
     setData(response.data.data)
   }
 
+  // Order tracking: poll orders so status updates (Preparing → Ready for Pickup → Collected) are visible
   useEffect(()=>{
     if (token) {
       fetchOrders();
@@ -22,7 +33,7 @@ const MyOrders = () => {
 
   return (
     <div className='my-orders'>
-      <h2>My Orders</h2>
+      <h2>My canteen orders</h2>
       <div className="container">
         {data.map((order,index)=>{
           return (
@@ -39,8 +50,8 @@ const MyOrders = () => {
                 })}</p>
                 <p>{currency}{order.amount}.00</p>
                 <p>Items: {order.items.length}</p>
-                <p><span>&#x25cf;</span> <b>{order.status}</b></p>
-                <button onClick={fetchOrders}>Track Order</button>
+                <p><span>&#x25cf;</span> <b>{orderStatusLabel(order.status)}</b></p>
+                <button onClick={fetchOrders}>Refresh status</button>
             </div>
           )
         })}

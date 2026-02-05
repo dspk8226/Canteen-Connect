@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { food_list, menu_list } from "../assets/assets";
 import axios from "axios";
+
+// Student-facing context: cart, auth, food list. API calls match backend exactly (no changes).
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
@@ -10,6 +12,7 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("")
     const currency = "₹";
+    // Shown in UI as "Service fee" / "Pickup fee"; backend receives same amount in order total
     const deliveryCharge = 50;
 
     const addToCart = async (itemId) => {

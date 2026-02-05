@@ -8,6 +8,7 @@ import Orders from './pages/Orders/Orders'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// Canteen staff UI: menu management (add/list) and order dashboard. API endpoints unchanged.
 const App = () => {
   return (
     <div className='app'>

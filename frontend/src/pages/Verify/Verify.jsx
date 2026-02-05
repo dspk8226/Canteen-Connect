@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { StoreContext } from '../../Context/StoreContext';
 import './Verify.css'
 
+// Post-payment verification (Stripe). Calls /api/order/verify then redirects to My orders.
 const Verify = () => {
   const { url } = useContext(StoreContext)
   const [searchParams, setSearchParams] = useSearchParams();
