@@ -20,6 +20,13 @@
     align-items: start;
     gap: 20px;
 }
+.footer-logo {
+    width: 160px;        /* adjust as needed */
+    max-width: 100%;
+    height: auto;        /* keeps aspect ratio */
+    object-fit: contain;
+}
+
 .footer-content-left ul li, .footer-content-center ul li, .footer-content-right ul li{
     margin-bottom: 10px;
     list-style: none;

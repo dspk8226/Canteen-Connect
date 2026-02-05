@@ -7,7 +7,7 @@ const Footer = () => {
     <div className='footer' id='footer'>
       <div className="footer-content">
         <div className="footer-content-left">
-            <img src={assets.logo} alt="" />
+        <img src={assets.logo} alt="Canteen Connect Logo" className="footer-logo" />
             <p>Canteen Connect lets students pre-order meals and pick up at the counter. No more long queues—order ahead and collect when ready.</p>
             <div className="footer-social-icons">
                 <img src={assets.facebook_icon} alt="" />
